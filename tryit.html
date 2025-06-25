@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calisthenics Website</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Basic Reset & Body Styling */
+        body {
+            margin: 0;
+            font-family: 'Poppins', sans-serif; /* Example font */
+            background-color: #000; /* Main background color */
+            color: #fff;
+        }
+
+        .container {
+            max-width: 1200px; /* Adjust as needed */
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Footer Top Section */
+        .footer-top {
+            background-color: #000; /* Same as body for now */
+            padding: 50px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap; /* For responsiveness */
+            border-bottom: 1px solid #333; /* Separator line */
+        }
+
+        .footer-top .container {
+            display: flex;
+            justify-content: space-between;
+            width: 100%;
+        }
+
+
+        .newsletter-section {
+            flex: 1;
+            margin-right: 20px;
+            position: relative;
+            padding-left: 30px; /* Space for the triangle */
+        }
+
+        .newsletter-heading {
+            display: flex;
+            align-items: center;
+            margin-bottom: 10px;
+        }
+
+        .newsletter-heading h2 {
+            font-size: 2.5em; /* Adjust size */
+            font-weight: 600;
+            color: #fff;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .newsletter-heading h3 {
+            font-size: 1.5em; /* Adjust size */
+            font-weight: 400;
+            color: #bbb;
+            margin: 0;
+            margin-left: 10px; /* Space between h2 and h3 */
+        }
+
+        .newsletter-section p {
+            color: #ccc;
+            margin-bottom: 20px;
+        }
+
+        .newsletter-form {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+
+        .newsletter-form input[type="email"] {
+            flex-grow: 1;
+            padding: 12px 15px;
+            border: 1px solid #555;
+            background-color: #333;
+            color: #fff;
+            border-radius: 5px;
+            font-size: 1em;
+        }
+
+        .newsletter-form button {
+            padding: 12px 25px;
+            background-color: #007bff; /* Blue color */
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1em;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+        }
+
+        .newsletter-form button:hover {
+            background-color: #0056b3;
+        }
+
+        .consent-checkbox {
+            display: flex;
+            align-items: flex-start;
+            font-size: 0.9em;
+            color: #aaa;
+        }
+
+        .consent-checkbox input[type="checkbox"] {
+            margin-right: 10px;
+            margin-top: 3px; /* Align with text */
+        }
+
+        .consent-checkbox a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .consent-checkbox a:hover {
+            text-decoration: underline;
+        }
+
+        /* Triangle for Newsletter Heading (CSS Shape) */
+        .newsletter-heading .triangle {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid #007bff; /* Blue color */
+            border-bottom: 20px solid transparent;
+            border-top: 20px solid transparent;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+
+        .social-section {
+            flex: 1;
+            text-align: right;
+        }
+
+        .social-section h2 {
+            font-size: 2.5em; /* Adjust size */
+            font-weight: 600;
+            color: #fff;
+            margin: 0;
+            text-transform: uppercase;
+        }
+
+        .social-section h3 {
+            font-size: 1.5em; /* Adjust size */
+            font-weight: 400;
+            color: #bbb;
+            margin: 0;
+            margin-bottom: 20px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .social-icon {
+            display: flex;
+            align-items: center;
+            padding: 8px 15px;
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-size: 0.9em;
+            transition: background-color 0.3s ease;
+        }
+
+        .social-icon:hover {
+            background-color: #555;
+        }
+
+        .social-icon img {
+            width: 20px; /* Adjust icon size */
+            height: 20px;
+            margin-right: 8px;
+            filter: invert(100%); /* Make icons white if they are dark */
+        }
+
+        /* Footer Middle Section */
+        .footer-middle {
+            background-color: #111; /* Slightly darker than top */
+            padding: 50px 0;
+            border-bottom: 1px solid #333; /* Separator line */
+        }
+
+        .footer-middle .container {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap; /* For responsiveness */
+            gap: 30px; /* Space between columns */
+        }
+
+        .footer-column {
+            flex: 1;
+            min-width: 250px; /* Minimum width before wrapping */
+        }
+
+        .footer-column h4 {
+            font-size: 1.2em;
+            color: #eee;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-column ul li a {
+            color: #aaa;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: #fff;
+        }
+
+        .calisthenics-info .footer-logo {
+            max-width: 200px; /* Adjust logo size */
+            margin-bottom: 15px;
+        }
+
+        .calisthenics-info p,
+        .calisthenics-info address {
+            color: #aaa;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        /* Footer Bottom Section */
+        .footer-bottom {
+            background-color: #000; /* Darkest background */
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        .footer-bottom p {
+            font-size: 0.8em;
+            color: #777;
+            line-height: 1.5;
+        }
+
+        .footer-bottom p a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .footer-bottom p a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .footer-top .container,
+            .footer-middle .container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-section,
+            .social-section,
+            .footer-column {
+                margin-right: 0;
+                margin-bottom: 40px; /* Space between sections */
+                width: 100%;
+                text-align: center; /* Center content */
+            }
+
+            .newsletter-form {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .newsletter-form input,
+            .newsletter-form button {
+                width: 80%; /* Adjust width for smaller screens */
+            }
+
+            .social-links {
+                justify-content: center;
+            }
+
+            .newsletter-heading .triangle {
+                display: none; /* Hide triangle on small screens for simplicity */
+            }
+
+            .calisthenics-info .footer-logo {
+                margin-left: auto;
+                margin-right: auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .newsletter-heading h2,
+            .social-section h2 {
+                font-size: 2em;
+            }
+
+            .newsletter-heading h3,
+            .social-section h3 {
+                font-size: 1.2em;
+            }
+
+            .social-icon {
+                padding: 6px 10px;
+                font-size: 0.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <footer class="site-footer">
+
+        <div class="footer-top">
+            <div class="container">
+                <div class="newsletter-section">
+                    <div class="newsletter-heading">
+                        <div class="triangle"></div>
+                        <h2>NEWSLETTER</h2>
+                        <h3>Subscribe to our newsletter!</h3>
+                    </div>
+                    <p>Signup for workout tips, special offers and exclusive deals!</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your Email Address">
+                        <button type="submit">Subscribe</button>
+                    </form>
+                    <div class="consent-checkbox">
+                        <input type="checkbox" id="consent">
+                        <label for="consent">I consent to have this website store my submitted information so they can send me news and offers. You can unsubscribe anytime. With your registration you accept our <a href="#">Privacy Policy</a>.</label>
+                    </div>
+                </div>
+
+                <div class="social-section">
+                    <h2>SOCIAL</h2>
+                    <h3>...or follow us on Social</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-icon instagram"><img src="https://via.placeholder.com/20/fff?text=IG" alt="Instagram">Instagram</a>
+                        <a href="#" class="social-icon youtube"><img src="https://via.placeholder.com/20/fff?text=YT" alt="YouTube">YouTube</a>
+                        <a href="#" class="social-icon facebook"><img src="https://via.placeholder.com/20/fff?text=FB" alt="Facebook">Facebook</a>
+                        <a href="#" class="social-icon twitter"><img src="https://via.placeholder.com/20/fff?text=TW" alt="Twitter">Twitter</a>
+                        <a href="#" class="social-icon linkedin"><img src="https://via.placeholder.com/20/fff?text=LI" alt="LinkedIn">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-middle">
+            <div class="container">
+                <div class="footer-column about-us">
+                    <h4>ABOUT</h4>
+                    <ul>
+                        <li><a href="#">About calisthenics.com</a></li>
+                        <li><a href="#">About Us</a></li>
+                        <li><a href="#">Editorial Process</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column legal">
+                    <h4>LEGAL</h4>
+                    <ul>
+                        <li><a href="#">Terms of Use</a></li>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Earnings Disclaimer</a></li>
+                        <li><a href="#">Accessibility</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column calisthenics-info">
+                    <img src="https://via.placeholder.com/200x50/333/fff?text=CALISTHENICS.COM+LOGO" alt="Calisthenics.com Logo" class="footer-logo">
+                    <h4>CALISTHENICS.COM</h4>
+                    <p>We're on a mission to help athletes reach better fitness results with calisthenics. Whether it's building muscle, burning fat or getting stronger, it's achievable with bodyweight training.</p>
+                    <address>
+                        285 Main St Unit 611, San Francisco, CA 94105, USA
+                    </address>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2025 CALISTHENICS.COM. Use of this web site constitutes acceptance of the CALISTHENICS.COM Terms of Use, Privacy Policy and Copyright Policy. The material appearing on CALISTHENICS.COM is for educational use only. It should not be used as a substitute for professional medical advice, diagnosis or treatment. Some of the links on CALISTHENICS.COM may be affiliate links which can provide compensation to the operator of this website. CALISTHENICS.COM do not endorse any of the products or services that are advertised on the web site. Moreover, we do not select every advertiser or advertisement that appears on the web site as many of the advertisements are served by third party advertising companies.</p>
+            </div>
+        </div>
+
+    </footer>
+
+</body>
+</html>
